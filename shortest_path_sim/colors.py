@@ -1,0 +1,5 @@
+ozadje = (100, 100, 100)
+kvadrat = (255, 255, 255)
+pobarvan = (0, 0, 0)
+obiskan = (50, 200, 50)
+start_stop = (150, 80, 80)
