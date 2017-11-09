@@ -186,6 +186,10 @@ def main():
                                 pass
 
             if e.type == pygame.KEYDOWN:
+                if e.key == pygame.K_r:
+                    clear_board()
+                    in_progress = ""
+
                 if e.key == pygame.K_KP1:
                     if not bfs_done:
                         clear_board()
