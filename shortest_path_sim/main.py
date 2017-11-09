@@ -4,7 +4,7 @@ import graph
 from algoritmi.bfs.bfs_ss_draw import bfs_step, bfs_done
 from shortest_path_sim import constants, colors
 from sys import exit as quit
-import multiprocessing
+import algoritmi.bfs.bfs_ss_draw as bfs_
 
 
 window = pygame.display.set_mode((constants.window_width, constants.window_height))
@@ -96,6 +96,8 @@ def clear_board():
         v.cas_vhoda = float('infinity')
         v.cas_izhoda = float('infinity')
     in_progress = ""
+    bfs_.reset()
+
 
 
 
