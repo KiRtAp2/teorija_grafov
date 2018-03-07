@@ -95,7 +95,7 @@ def kvadrat_na_xy(x, y):
     y -= constants.BORDER_HEIGHT
     sqx = math.floor(x / constants.SQUARE_WIDTH)
     sqy = math.floor(y / constants.SQUARE_HEIGHT)
-    return sqx+sqy*constants.NUM_OF_SQUARES[0]
+    return int(sqx+sqy*constants.NUM_OF_SQUARES[0])
 
 
 def leva_miska():

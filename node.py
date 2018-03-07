@@ -6,6 +6,8 @@ class Vozlisce(object):
         self.n = zaporedno_stevilo
         self.obiskano = False
         self.oznaka = None
+        self.cas_vhoda = -1
+        self.cas_izhoda = -1
 
     def vhod(self, cas, print_=False):
         self.cas_vhoda = cas
