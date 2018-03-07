@@ -1,4 +1,6 @@
 import queue
+from shortest_path_sim import constants
+
 import graph
 import time
 
@@ -19,7 +21,7 @@ def reset():
 
 
 def bfs_step(graf: graph.GrafSS, start: int, stop: int):
-    #time.sleep(0)  # za bojlši izgled
+    time.sleep(constants.sleep_delay)  # za bojlši izgled
     global bfs_done, vrsta
     if not bfs_done:
         vrsta.put(graf.vozlica[start])

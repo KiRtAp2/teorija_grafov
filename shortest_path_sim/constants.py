@@ -10,3 +10,5 @@ square_width = int((window_width-2*border_width)/number_of_squares[0])
 square_height = int((window_height-2*border_height)/number_of_squares[1])
 square_field_width = number_of_squares[0]*square_width
 square_field_height = number_of_squares[1]*square_height
+
+sleep_delay = 0

@@ -95,6 +95,38 @@ def kvadrat_na_xy(x, y):
     return sqx+sqy*constants.number_of_squares[0]
 
 
+def leva_miska():
+    kvn = kvadrat_na_xy(*pygame.mouse.get_pos())
+    if kvn is not None and kvn != constants.all_squares - 1 and kvn != 0:
+        graf.vozlica[kvn].oznaci(1)
+        for sq in dobi_sosede(kvn):
+            try:
+                graf.sosednjost[sq].remove(kvn)
+            except ValueError:
+                pass
+                # ValueError se pojavi, ko poskusimo klikniti na celico, ki je že pravilno označena
+
+
+def desna_miska():
+    kvn = kvadrat_na_xy(*pygame.mouse.get_pos())
+    if kvn is not None and kvn != constants.all_squares - 1 and kvn != 0:
+        graf.vozlica[kvn].oznaci(0)
+        for sq in dobi_sosede(kvn):
+            try:
+                graf.sosednjost[sq].append(kvn)
+            except ValueError:
+                pass
+                # ValueError se pojavi, ko poskusimo klikniti na celico, ki je že pravilno označena
+
+
+def uporaba_miske():
+    if pygame.mouse.get_pressed()[0]:  # Levi gumb miške
+        leva_miska()
+
+    if pygame.mouse.get_pressed()[2]:  # desni gumb miške
+        desna_miska()
+
+
 def main():
 
     global in_progress
@@ -107,50 +139,10 @@ def main():
                 quit()
 
             if e.type == pygame.MOUSEBUTTONDOWN:
-                if pygame.mouse.get_pressed()[0]:
-                    kvn = kvadrat_na_xy(*pygame.mouse.get_pos())
-                    if kvn is not None and kvn != constants.all_squares-1 and kvn != 0:
-                        graf.vozlica[kvn].oznaci(1)
-                        for sq in dobi_sosede(kvn):
-                            try:
-                                graf.sosednjost[sq].remove(kvn)
-                            except ValueError:
-                                pass
-                                # ValueError se pojavi, ko poskusimo klikniti na celico, ki je že pravilno označena
-
-                if pygame.mouse.get_pressed()[2]:
-                    kvn = kvadrat_na_xy(*pygame.mouse.get_pos())
-                    if kvn is not None and kvn != constants.all_squares - 1 and kvn != 0:
-                        graf.vozlica[kvn].oznaci(0)
-                        for sq in dobi_sosede(kvn):
-                            try:
-                                graf.sosednjost[sq].append(kvn)
-                            except ValueError:
-                                pass
-                                # ValueError se pojavi, ko poskusimo klikniti na celico, ki je že pravilno označena
+                uporaba_miske()
 
             if e.type == pygame.MOUSEMOTION:
-                if pygame.mouse.get_pressed()[0]:
-                    kvn = kvadrat_na_xy(*pygame.mouse.get_pos())
-                    if kvn is not None and kvn != constants.all_squares - 1 and kvn != 0:
-                        graf.vozlica[kvn].oznaci(1)
-                        for sq in dobi_sosede(kvn):
-                            try:
-                                graf.sosednjost[sq].remove(kvn)
-                            except ValueError:
-                                pass
-                                # ValueError se pojavi, ko poskusimo klikniti na celico, ki je že pravilno označena
-
-                if pygame.mouse.get_pressed()[2]:
-                    kvn = kvadrat_na_xy(*pygame.mouse.get_pos())
-                    if kvn is not None and kvn != constants.all_squares - 1 and kvn != 0:
-                        graf.vozlica[kvn].oznaci(0)
-                        for sq in dobi_sosede(kvn):
-                            try:
-                                graf.sosednjost[sq].append(kvn)
-                            except ValueError:
-                                pass
-                                # ValueError se pojavi, ko poskusimo klikniti na celico, ki je že pravilno označena
+                uporaba_miske()
 
             if e.type == pygame.KEYDOWN:
 
@@ -175,3 +167,8 @@ def main():
 if __name__ == '__main__':
     pygame.init()
     main()
+
+
+
+# TODO:
+# vhod in izhod bi lahko bla po resetiranju normalne barve
