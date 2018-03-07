@@ -77,7 +77,7 @@ def clear_board():
     global in_progress
     for v in graf.vozlica:
         v.obiskano = False
-        if v.oznaka == 2: v.oznaka = 0
+        if v.oznaka == 2: v.oznaci(0)
         v.cas_vhoda = float('infinity')
         v.cas_izhoda = float('infinity')
     in_progress = ""
