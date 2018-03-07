@@ -8,13 +8,15 @@ dfs_zacet = False
 
 
 def dfs(graf: graph.GrafSS, start: int, stop: int):
+    """Na hitro opravi cel dfs po korakih, vendar se med izvajanjem graf ne nariše na zaslonu (ni asinhrono)"""
     out = False
     while out is not None:
         out = dfs_step(graf, start, stop)
 
 
 def dfs_step(graf: graph.GrafSS, start: int, stop: int):
-    time.sleep(constants.sleep_delay)
+    """Opravi en korak DFS (obravna eno polje)"""
+    time.sleep(constants.SLEEP_DELAY)
     global dfs_zacet, sklad
     if not dfs_zacet:
         sklad.append(graf.vozlica[start])
@@ -36,19 +38,7 @@ def dfs_step(graf: graph.GrafSS, start: int, stop: int):
 
 
 def reset():
+    """Resetira nastavitve, da se lahko naredi nov DFS"""
     global dfs_zacet, sklad
     sklad.clear()
     dfs_zacet = False
-
-
-
-# def dfs(graf: graph.GrafMS, v: int):
-#     global cas
-#     cas += 1
-#     graf.vozlisca[v].vhod(cas, True)
-#     graf.vozlisca[v].obiskano = True
-#     for i in range(graf.velikost):
-#         if graf.sosednjost[v][i] and not graf.vozlisca[i].obiskano:
-#             dfs(graf, i)
-#     cas += 1
-#     graf.vozlisca[v].izhod(cas, True)

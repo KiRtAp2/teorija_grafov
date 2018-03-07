@@ -9,19 +9,22 @@ bfs_done = False
 
 
 def bfs(graf: graph.GrafSS, start: int, stop: int):
+    """Opravi cel BFS po korakih, vendar se na zaslonu med izvajanjem nič ne spremeni"""
     out = False
     while out is not None:
         out = bfs_step(graf, start, stop)
 
 
 def reset():
+    """Resetira nastavitve, da se lahko BFS ponovno izvede"""
     global bfs_done, vrsta
     bfs_done = False
     vrsta = queue.Queue()
 
 
 def bfs_step(graf: graph.GrafSS, start: int, stop: int):
-    time.sleep(constants.sleep_delay)  # za bojlši izgled
+    """Opravi en korak BFS (eno vozlišče)"""
+    time.sleep(constants.SLEEP_DELAY)  # za bojlši izgled
     global bfs_done, vrsta
     if not bfs_done:
         vrsta.put(graf.vozlica[start])

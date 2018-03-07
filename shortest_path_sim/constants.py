@@ -1,14 +1,17 @@
-window_width = 500
-window_height = 500
+"""Ta modul shranjuje konstante, ki jih program hrani med izvanjanjem"""
 
-border_width = 20
-border_height = 20
 
-number_of_squares = (50, 50)
-all_squares = number_of_squares[0]*number_of_squares[1]
-square_width = int((window_width-2*border_width)/number_of_squares[0])
-square_height = int((window_height-2*border_height)/number_of_squares[1])
-square_field_width = number_of_squares[0]*square_width
-square_field_height = number_of_squares[1]*square_height
+WWIDTH = 500  # širina okna
+WHEIGHT = 500  # višina okna
 
-sleep_delay = 0
+BORDER_WIDTH = 20
+BORDER_HEIGHT = 20
+
+NUM_OF_SQUARES = (50, 50)  # število polj v vsaki smeri
+ALL_SQUARES = NUM_OF_SQUARES[0] * NUM_OF_SQUARES[1]  # število vseh polj
+SQUARE_WIDTH = int((WWIDTH - 2 * BORDER_WIDTH) / NUM_OF_SQUARES[0])
+SQUARE_HEIGHT = int((WHEIGHT - 2 * BORDER_HEIGHT) / NUM_OF_SQUARES[1])
+SQUARE_FIELD_WIDTH = NUM_OF_SQUARES[0] * SQUARE_WIDTH
+SQUARE_FIELD_HEIGHT = NUM_OF_SQUARES[1] * SQUARE_HEIGHT
+
+SLEEP_DELAY = 0
