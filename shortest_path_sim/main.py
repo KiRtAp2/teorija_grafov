@@ -42,8 +42,8 @@ for i in range(constants.ALL_SQUARES):
 window = pygame.display.set_mode((constants.WWIDTH, constants.WHEIGHT))
 graf = graph.GrafSS(constants.ALL_SQUARES, seznam_sosednjosti)
 in_progress = ""
-graf.vozlica[0].oznaka = 3
-graf.vozlica[-1].oznaka = 3
+graf.vozlica[0].oznaci(3)
+graf.vozlica[-1].oznaci(3)
 
 
 def narisi_kvadrate():
@@ -83,6 +83,8 @@ def clear_board():
     in_progress = ""
     bfs_.reset()
     dfs_.reset()
+    graf.vozlica[0].oznaci(3)
+    graf.vozlica[-1].oznaci(3)
 
 
 def kvadrat_na_xy(x, y):
@@ -177,8 +179,3 @@ def main():
 if __name__ == '__main__':
     pygame.init()
     main()
-
-
-
-# TODO:
-# vhod in izhod bi lahko bla po resetiranju normalne barve
