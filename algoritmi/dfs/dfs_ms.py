@@ -2,6 +2,7 @@ import graph
 
 cas = 0
 
+
 def dfs(graf: graph.GrafMS, v: int):
     global cas
     cas += 1
@@ -12,7 +13,6 @@ def dfs(graf: graph.GrafMS, v: int):
             dfs(graf, i)
     cas += 1
     graf.vozlisca[v].izhod(cas, True)
-
 
 
 def main():
@@ -27,6 +27,7 @@ def main():
     graf = graph.GrafMS(n, matrika)
     print("DFS začenjam v vozlišču 0...")
     dfs(graf, 0)
+
 
 if __name__ == '__main__':
     main()

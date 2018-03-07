@@ -2,9 +2,11 @@ import math
 import pygame
 import graph
 from algoritmi.bfs.bfs_ss_draw import bfs_step
+from algoritmi.dfs.dfs_ss_draw import dfs_step
 from shortest_path_sim import constants, colors
 from sys import exit as quit
 import algoritmi.bfs.bfs_ss_draw as bfs_
+import algoritmi.dfs.dfs_ss_draw as dfs_
 
 
 def dobi_sosede(k: int):
@@ -80,6 +82,7 @@ def clear_board():
         v.cas_izhoda = float('infinity')
     in_progress = ""
     bfs_.reset()
+    dfs_.reset()
 
 
 def kvadrat_na_xy(x, y):
@@ -154,8 +157,15 @@ def main():
                     clear_board()
                     in_progress = "bfs"
 
+                if e.key == pygame.K_KP2:
+                    clear_board()
+                    in_progress = "dfs"
+
         if in_progress == "bfs":
             if bfs_step(graf, 0, constants.all_squares-1) is True:
+                in_progress = ""
+        elif in_progress == "dfs":
+            if dfs_step(graf, 0, constants.all_squares-1) is True:
                 in_progress = ""
 
         window.fill(colors.ozadje)
