@@ -1,6 +1,6 @@
 import graph
 import time
-from shortest_path_sim import constants
+import constants
 
 
 sklad = list()

@@ -1,5 +1,5 @@
 import queue
-from shortest_path_sim import constants
+import constants
 
 import graph
 import time

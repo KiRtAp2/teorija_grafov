@@ -3,7 +3,7 @@ import pygame
 import graph
 from algoritmi.bfs.bfs_ss_draw import bfs_step
 from algoritmi.dfs.dfs_ss_draw import dfs_step
-from shortest_path_sim import constants, colors
+import constants, colors
 from sys import exit as quit
 import algoritmi.bfs.bfs_ss_draw as bfs_
 import algoritmi.dfs.dfs_ss_draw as dfs_
